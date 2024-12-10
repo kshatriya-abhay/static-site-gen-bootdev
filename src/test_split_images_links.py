@@ -20,6 +20,11 @@ class TestSplitImages(unittest.TestCase):
     def test_split_images_3(self):
         input_list = ["abc ![alt](http://example.com) xyz [url](http://www.google.com)"]
         self.assertRaises(AssertionError, split_nodes_image, input_list)
+    
+    def test_split_images_4(self):
+        input_list = [TextNode("Lorem Ipsum", TextType.TEXT)]
+        output_list = split_nodes_image(input_list)
+        self.assertEqual(output_list[0], TextNode("Lorem Ipsum", TextType.TEXT))
 
 class TestSplitLinks(unittest.TestCase):
     def test_split_links(self):

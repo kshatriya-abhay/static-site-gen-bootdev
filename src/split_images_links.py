@@ -37,7 +37,7 @@ def split_nodes(old_nodes, extracted_text_type, extract_markdown_fn, markdown_te
         if last_end < len(node_text):
             new_nodes.append(TextNode(node_text[last_end:], TextType.TEXT))
         
-        return new_nodes
+    return new_nodes
 
 def make_image_markdown_from_tuple(t):
     assert isinstance(t, tuple)

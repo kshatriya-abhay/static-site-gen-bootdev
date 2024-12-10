@@ -19,3 +19,10 @@ class TestTextToTextNode(unittest.TestCase):
             TextNode("link", TextType.LINK, "https://boot.dev"),
         ]
         self.assertEqual(nodes, expected)
+
+        t2 = "Lorem Ipsum"
+        nodes2 = text_to_textnodes(t2)
+        expected2 = [
+            TextNode("Lorem Ipsum", TextType.TEXT)
+        ]
+        self.assertEqual(nodes2, expected2)
