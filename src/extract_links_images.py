@@ -2,7 +2,7 @@ import re
 
 def extract_markdown_links(text):
     assert isinstance(text, str)
-    url_list = re.findall(r"(?<!\!)\[.*?\]\(\w+\:\/\/[a-zA-Z0-9_\/\.]+\)", text)
+    url_list = re.findall(r"(?<!\!)\[.*?\]\([a-zA-Z0-9_\/\.:]+\)", text)
     return get_tuples(url_list)
 
 def extract_markdown_images(text): 

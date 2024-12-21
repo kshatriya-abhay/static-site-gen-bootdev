@@ -11,8 +11,10 @@ def markdown_to_html(text):
     child_nodes = []
     for block in blocks_list:
         nodes = block_to_htmlnode(block)
-        
-        child_nodes.append(nodes)
+        if isinstance(nodes, HTMLNode):
+            child_nodes.append(nodes)
+        else:
+            child_nodes.extend(nodes)
     return ParentNode(tag="div", children=child_nodes)
 
 def block_to_htmlnode(text_block):

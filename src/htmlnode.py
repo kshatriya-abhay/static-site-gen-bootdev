@@ -13,7 +13,18 @@ class HTMLNode:
         return self.tag == other.tag and self.value == other.value and self.children == other.children and self.props == other.props
 
     def to_html(self):
-        raise NotImplementedError
+        props_str = self.props_to_html()
+        if self.children is not None:
+            children_html = ""
+            for child in self.children:
+                assert isinstance(child, HTMLNode)
+                child_html = child.to_html()
+                children_html += child_html
+            html = f"<{self.tag}{props_str}>{children_html}</{self.tag}>"
+            return html
+        else:
+            html = f"<{self.tag}{props_str}>{self.value}</{self.tag}>"
+            return html
     
     def props_to_html(self):
         attributes = ""
