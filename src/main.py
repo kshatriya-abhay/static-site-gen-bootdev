@@ -1,19 +1,22 @@
 from textnode import TextNode
 import os
 import shutil
+import sys
 from generate_page import generate_pages_recursive
 
 def main():
-    print("hello world")
     copy_static_to_public()
 
 def copy_static_to_public():
-    if os.path.exists("./public"):
-        shutil.rmtree("./public")
+    basepath = '/'
+    if len(sys.argv) > 0:
+        basepath = sys.argv[0]
+    if os.path.exists("./docs"):
+        shutil.rmtree("./docs")
     if os.path.exists("./static"):
-        print("Copying static files to public dir...")
-        shutil.copytree("./static", "./public")
-    generate_pages_recursive("content", "template.html", "public")
+        print("Copying static files to docs dir...")
+        shutil.copytree("./static", "./docs")
+    generate_pages_recursive("content", "template.html", "docs", basepath)
 
 if __name__ == "__main__":
     main()
