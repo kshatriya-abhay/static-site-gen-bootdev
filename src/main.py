@@ -9,8 +9,8 @@ def main():
 
 def copy_static_to_public():
     basepath = '/'
-    if len(sys.argv) > 0:
-        basepath = sys.argv[0]
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
     if os.path.exists("./docs"):
         shutil.rmtree("./docs")
     if os.path.exists("./static"):

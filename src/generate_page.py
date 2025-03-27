@@ -19,7 +19,7 @@ def generate_page(from_path, template_path, dest_path, basepath):
     html_txt = markdown_to_html(from_txt).to_html()
     title = extract_title(from_txt)
     generated_html = template_txt.replace("{{ Title }}", title).replace("{{ Content }}", html_txt)
-    generated_html = generated_html.replace('href="/', f'href="{basepath}').replace('src="/', f'src="{basepath}')
+    generated_html = generated_html.replace('href="/', f"href=\"{basepath}").replace('src="/', f"src=\"{basepath}")
     dir = dest_path.split("/")[:-1]
     dir = "/".join(dir)
     if dir != "" and not os.path.exists(dir):
