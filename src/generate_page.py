@@ -22,7 +22,7 @@ def generate_page(from_path, template_path, dest_path):
     dir = dest_path.split("/")[:-1]
     dir = "/".join(dir)
     if dir != "" and not os.path.exists(dir):
-        os.mkdir(dir)
+        os.makedirs(dir)
     dest_file = open(dest_path, "w")
     dest_file.write(generated_html)
     dest_file.close()

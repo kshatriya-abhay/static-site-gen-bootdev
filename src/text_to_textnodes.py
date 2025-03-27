@@ -9,7 +9,7 @@ def text_to_textnodes(text):
     
     node_list = split_nodes_delimiter(node_list, '**', TextType.BOLD)
     
-    node_list = split_nodes_delimiter(node_list, '*', TextType.ITALIC)
+    node_list = split_nodes_delimiter(node_list, '_', TextType.ITALIC)
 
     node_list = split_nodes_delimiter(node_list, '`', TextType.CODE)
 
